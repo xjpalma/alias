@@ -57,6 +57,8 @@ alias h='history'
 alias j='jobs -l'
 alias c='clear'
 
+alias more=less
+
 ## Find a command in your grep history
 alias gh='history|grep'
 
@@ -85,8 +87,8 @@ alias poweroff='sudo /sbin/poweroff'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
-## pass options to free
-alias meminfo='free -m -l -t'
+## memory
+alias free='free -m -l -t'
 
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
