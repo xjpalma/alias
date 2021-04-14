@@ -10,6 +10,15 @@ alias lz='ls --human-readable --size -1 -S --classify --color=auto'
 ## list by modification time
 alias lt='ls -l --human-readable -t -1 -color=auto'
 
+## use exa to replace ls
+if hash exa 2>/dev/null; then
+  alias ls='exa -ah --color=always --group-directories-first'
+  alias ll='exa -lh --group --links -t=mod --time-style=long-iso --color=always --group-directories-first'
+  alias la='exa -alh --group -links  -t=mod --time-style=long-iso --color=always --group-directories-first'
+  alias l.='exa -lah -t=mod -links  --time-style=long-iso --group --color=always |egrep "^\."'
+  alias tree='exa --long --tree --level=2'
+fi
+
 ## count files in current dir
 alias count='find . -type f | wc -l'
 
