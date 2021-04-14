@@ -127,4 +127,5 @@ alias ipi='hostname -I'
 ## htop user
 alias htop='htop -u $USER'
 
-
+## code-oss
+alias code=code-oss
