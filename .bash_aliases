@@ -122,7 +122,7 @@ alias wget='wget -c '
 alias ipe='curl ipinfo.io/ip'
 
 ## get private ip
-alias ipi='hostname -I'
+alias ipi='ip addr'
 
 ## htop user
 alias htop='htop -u $USER'
