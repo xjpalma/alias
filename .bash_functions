@@ -1,12 +1,12 @@
 ## change dir and list
 function cl() {
-    DIR="$*";
-    if [ $# -lt 1 ]; then
-        DIR=$HOME
-    fi
-    builtin cd "${DIR}" && \
-    # use your preferred ls command
-        ll
+  DIR="$*";
+  if [ $# -lt 1 ]; then
+      DIR=$HOME
+  fi
+  builtin cd "${DIR}" && \
+  # use your preferred ls command
+  ll
 }
 
 ## archive extractor
