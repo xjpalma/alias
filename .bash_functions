@@ -10,8 +10,7 @@ function cl() {
 }
 
 ## archive extractor
-ex ()
-{
+ex (){
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -30,4 +29,54 @@ ex ()
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+## configure proxy
+function proxy_on() {
+  export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+  if (( $# > 0 )); then
+    local proxy="http://$1"
+    export http_proxy=$proxy \
+           https_proxy=$proxy \
+           ftp_proxy=$proxy \
+           rsync_proxy=$proxy \
+           socks_proxy=$proxy \
+           HTTP_PROXY=$proxy \
+           HTTPS_PROXY=$proxy \
+           FTP_PROXY=$proxy \
+           RSYNC_PROXY=$proxy \
+           SOCKS_PROXY=$proxy
+    echo "Proxy environment variable set."
+    env | grep proxy
+    return 0
+  fi
+
+  echo -n "username: "; read username
+  if [[ $username != "" ]]; then
+    echo -n "password: "
+    read -es password
+    local pre="$username:$password@"
+  fi
+  echo -n "server: "; read server
+  echo -n "port: "; read port
+
+  local proxy="http://$pre$server:$port"
+  export http_proxy=$proxy \
+         https_proxy=$proxy \
+         ftp_proxy=$proxy \
+         rsync_proxy=$proxy \
+         socks_proxy=$proxy \
+         HTTP_PROXY=$proxy \
+         HTTPS_PROXY=$proxy \
+         FTP_PROXY=$proxy \
+         RSYNC_PROXY=$proxy \
+         SOCKS_PROXY=$proxy
+}
+
+function proxy_off(){
+  unset http_proxy https_proxy ftp_proxy rsync_proxy socks_proxy \
+        HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY SOCKS_PROXY
+
+  echo -e "Proxy environment variables removed."
 }
