@@ -1,11 +1,11 @@
 ## list
-alias ll='ls -l --human-readable --color=auto'
+alias ll='ls -l --group-directories-first --human-readable --color=auto'
 
 ## Show hidden files #
 alias l.='ls -l --human-readable --directory .* --color=auto'
 
 ## list by size
-alias lz='ls --human-readable --size -1 -S --classify --color=auto'
+alias lz='ls --group-directories-first --human-readable --size -1 -S --classify --color=auto'
 
 ## list by modification time
 alias lt='ls -l --human-readable -t -1 -color=auto'
