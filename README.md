@@ -4,11 +4,11 @@ or copy [bash_aliases](.bash_aliases) and [bash_functions](.bash_functions) to y
 and and this to your  ~/.bashrc
 ```
 # User specific aliases and functions
-if [ -e $HOME/.bash_aliases ]; then
-    source $HOME/.bash_aliases
+if [ -e ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
 
-if [ -e $HOME/.bash_functions ]; then
-    source $HOME/.bash_functions
+if [ -e ~/.bash_functions ]; then
+    source ~/.bash_functions
 fi
 ```
